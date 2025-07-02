@@ -18,4 +18,6 @@ ghpages.publish(src, {
     branch: 'gh-pages',
     repo: 'https://github.com/andrew781026/hexschool-2025-summer.git',
     dest // 推到 gh-pages 分支中的 [dest] 資料夾中
+}, function(err) {
+    console.log(err);
 });
