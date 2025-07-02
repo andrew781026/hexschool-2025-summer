@@ -1,4 +1,4 @@
-name: Deploy
+name: Root Deploy
 # ---
 # Trigger GitHub Action Event Timing:
 # https://docs.github.com/en/enterprise-server@3.5/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
