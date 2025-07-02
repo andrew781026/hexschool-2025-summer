@@ -42,4 +42,3 @@ jobs:
 
       - name: 🚀 Deploy
         run: npm run deploy:week1
-        if: exists('package.json')
