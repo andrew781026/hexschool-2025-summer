@@ -1,0 +1,16 @@
+{
+  "name": "hexschool-2025-summer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy:week1": "node gh-pages.js --src='week1/homework' --desc=week1"
+  },
+  "keywords": [],
+  "author": "andrew",
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "minimist": "^1.2.8"
+  }
+}

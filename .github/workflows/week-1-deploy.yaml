@@ -1,0 +1,45 @@
+name: Code Scan
+# ---
+# Trigger GitHub Action Event Timing:
+# https://docs.github.com/en/enterprise-server@3.5/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
+# https://adc.github.trendmicro.com/RDSec-BuildFarm/elastic-buildfarm-user-guides/blob/8dd322640597d30181d8a683d5c7c9981fbf34c8/service/quickstarts.md#start-from-a-sample-workflow
+# ---
+on:
+  workflow_dispatch:
+  #   inputs:
+  #     PROJ_VERSION_USE_LATEST:
+  #       description: 'Code Scan Version Define'
+  #       required: true
+  #       default: 'latest'
+  #       type: choice
+  #       options:
+  #       - latest
+  #       - latest_yyyy-mm-dd_HHMMSS
+  # schedule:
+  #   - cron: '0 0 * * 1'
+  push:
+    branches: [ dev, beta, prod ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🚀 Deploy
+        run: npm run deploy:week1
+        if: success() && exists('package.json') && contains(github.event.head_commit.message, 'build')
