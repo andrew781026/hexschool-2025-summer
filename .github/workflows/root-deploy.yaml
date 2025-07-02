@@ -1,0 +1,37 @@
+name: Deploy
+# ---
+# Trigger GitHub Action Event Timing:
+# https://docs.github.com/en/enterprise-server@3.5/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
+# https://adc.github.trendmicro.com/RDSec-BuildFarm/elastic-buildfarm-user-guides/blob/8dd322640597d30181d8a683d5c7c9981fbf34c8/service/quickstarts.md#start-from-a-sample-workflow
+# ---
+on:
+  workflow_dispatch:
+  #   inputs:
+  #     PROJ_VERSION_USE_LATEST:
+  #       description: 'Code Scan Version Define'
+  #       required: true
+  #       default: 'latest'
+  #       type: choice
+  #       options:
+  #       - latest
+  #       - latest_yyyy-mm-dd_HHMMSS
+  # schedule:
+  #   - cron: '0 0 * * 1'
+  push:
+    branches: [ dev, beta, prod, master]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 📤 Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages  # default: gh-pages
+          publish_dir: ./root
+          keep_files: true

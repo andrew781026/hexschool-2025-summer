@@ -1,0 +1,15 @@
+<!-- public/404.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Redirecting...</title>
+    <script>
+        // 將使用者導回 index.html（保留 hash）
+        location.replace('/index.html' + location.search + location.hash);
+    </script>
+</head>
+<body>
+<p>Redirecting...</p>
+</body>
+</html>
