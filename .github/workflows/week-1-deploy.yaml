@@ -42,4 +42,4 @@ jobs:
 
       - name: 🚀 Deploy
         run: npm run deploy:week1
-        if: success() && exists('package.json') && contains(github.event.head_commit.message, 'build')
+        if: exists('package.json')
