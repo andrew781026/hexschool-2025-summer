@@ -37,5 +37,10 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🚀 Deploy
-        run: npm run deploy:week1
+      - name: 📤 Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./week1/homework
+          destination_dir: week1
+          publish_branch: gh-pages  # default: gh-pages
