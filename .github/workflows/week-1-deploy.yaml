@@ -1,4 +1,4 @@
-name: Code Scan
+name: Deploy
 # ---
 # Trigger GitHub Action Event Timing:
 # https://docs.github.com/en/enterprise-server@3.5/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
@@ -18,7 +18,7 @@ on:
   # schedule:
   #   - cron: '0 0 * * 1'
   push:
-    branches: [ dev, beta, prod ]
+    branches: [ dev, beta, prod, master]
 
 jobs:
 
