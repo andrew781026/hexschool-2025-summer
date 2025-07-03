@@ -89,7 +89,7 @@ body {
     align-items: center;
     text-align: center;
     min-height: 400px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('imgs/hero-section.png');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('imgs/hero-section.png');
     background-size: cover;
     background-position: center;
 }
