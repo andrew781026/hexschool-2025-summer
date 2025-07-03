@@ -1,0 +1,23 @@
+.text-primary{
+    color: var(--color-neutral-900);
+}
+
+.text-secondary{
+    color: var(--color-neutral-600);
+}
+
+.text-muted{
+    color: var(--color-neutral-500);
+}
+
+.text-highlight{
+    color: var(--color-primary-400);
+}
+
+.text-on-dark{
+    color: var(--color-white);
+}
+
+.bg-highlight{
+    background-color: var(--color-primary-100);
+}
