@@ -1,0 +1,39 @@
+/* 1076px . 856px */
+.container {
+    max-width: 1296px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 312px;
+    padding-right: 312px;
+}
+
+/* Grid gutter spacing */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -12px; /* Gutter 一半 */
+    margin-right: -12px;
+}
+
+.col {
+    padding-left: 12px;
+    padding-right: 12px;
+    /* 可依照需要調整 col 的寬度 */
+}
+
+@media (max-width: 767px) {
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .row {
+        margin-left: -8px; /* gutter: 16px，所以兩邊各 8px */
+        margin-right: -8px;
+    }
+
+    .col {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
