@@ -76,6 +76,10 @@ body {
     text-align: center;
 }
 
+.underline-offset-4{
+    text-underline-offset: 4px;
+}
+
 .main{
     display: flex;
     flex-direction: column;
