@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
+    <style>
+        .footer {
+            display: flex;
+            font-size: 16px;
+            line-height: 1.5;
+            justify-content: center;
+            align-items: center;
+            height: 120px;
+        }
+
+        .title {
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        .content {
+            width: 288px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body class="flex">
+<div id="app" class="flex flex-col mx-auto">
+    <div class="flex gap-5">
+        <div class="flex flex-col">
+            <div class="small-img mb-6">
+                <img src="https://dummyimage.com/96/" alt="small-img">
+            </div>
+            <div class="small-img mb-6">
+                <img src="https://dummyimage.com/96/" alt="small-img">
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <section class="mb-6">
+                <h4 class="title">
+                    Lorem Ipsum: common examples
+                </h4>
+                <p class="content line-clamp-3">
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+                    pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed
+                    diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl
+                    malesuada lacin
+                </p>
+            </section>
+            <section>
+                <h4 class="title line-clamp-1 w-[140px]">
+                    Lorem Ipsum Pulvinar vivamus fringilla lacus nec metus bi
+                </h4>
+                <p class="content line-clamp-4">
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+                    pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed
+                    diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl
+                    malesuada lacin
+                </p>
+            </section>
+        </div>
+        <div class="big-img">
+            <img src="https://dummyimage.com/216/" alt="big-img">
+        </div>
+    </div>
+
+    <div class="footer">
+        表尾文字 font-size:16px;line-height:1.5;
+    </div>
+</div>
+</body>
+</html>

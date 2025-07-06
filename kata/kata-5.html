@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .title{
+      font-size: 20px;
+      line-height: 1.2;
+      width: 150px;
+    }
+
+    .content{
+      font-size: 16px;
+      line-height: 1.5;
+      width: 288px;
+    }
+
+    .footer{
+      font-size: 16px;
+      line-height: 1.5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 120px;
+    }
+  </style>
+</head>
+<body class="flex">
+<div id="app" class="mx-auto">
+  <main class="flex gap-5">
+    <div class="flex flex-col"><img src="https://dummyimage.com/96/" alt="" class="mb-6"><img src="https://dummyimage.com/96/" alt="" class="mb-6"></div>
+    <div class="flex flex-col">
+      <div class="title line-clamp-1">
+        Lorem Ipsum: common examples
+      </div>
+      <p class="content line-clamp-3 mb-6">
+        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+        pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed
+        diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl
+        malesuada lacin
+      </p>
+      <div class="title line-clamp-1">
+        Lorem Ipsum: common examples
+      </div>
+      <p class="content line-clamp-4">
+        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+        pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed
+        diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl
+        malesuada lacin
+      </p>
+    </div>
+    <div class="flex flex-col"><img src="https://dummyimage.com/216/" alt="" ></div>
+  </main>
+  <footer class="footer">
+    表尾文字 font-size:16px;line-height:1.5;
+  </footer>
+</div>
+</body>
+</html>
