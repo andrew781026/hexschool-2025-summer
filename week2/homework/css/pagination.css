@@ -1,0 +1,13 @@
+.pagination {
+
+}
+
+.pagination * {
+    height: 40px;
+    width: 40px;
+    letter-spacing: 0;
+}
+
+.page.active {
+    background-color: var(--color-primary-300);
+}

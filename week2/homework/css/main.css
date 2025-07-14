@@ -1,0 +1,12 @@
+@import "variables.css";
+@import "typo.css";
+@import "button.css";
+@import "pagination.css";
+
+body {
+    font-family: "Noto Sans TC", "Noto Sans", sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}

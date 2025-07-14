@@ -1,4 +1,4 @@
-name: Week 1 Deploy
+name: Week 2 Deploy
 # ---
 # Trigger GitHub Action Event Timing:
 # https://docs.github.com/en/enterprise-server@3.5/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
@@ -17,8 +17,8 @@ on:
   #       - latest_yyyy-mm-dd_HHMMSS
   # schedule:
   #   - cron: '0 0 * * 1'
-#  push:
-#    branches: [ dev, beta, prod, main]
+  push:
+    branches: [ dev, beta, prod, main]
 
 jobs:
 
@@ -28,19 +28,10 @@ jobs:
       - name: ⬇️ Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🟢 Use Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      - name: 📦 Install dependencies
-        run: npm install
-
       - name: 📤 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./week1/homework
-          destination_dir: week1
+          publish_dir: ./week2/homework
+          destination_dir: week2
           publish_branch: gh-pages  # default: gh-pages
