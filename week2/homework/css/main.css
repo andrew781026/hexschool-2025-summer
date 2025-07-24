@@ -1,6 +1,7 @@
 @import "variables.css";
 @import "typo.css";
 @import "button.css";
+@import "options.css";
 @import "pagination.css";
 
 body {
