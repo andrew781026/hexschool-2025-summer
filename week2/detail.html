@@ -125,7 +125,7 @@
 <main class="flex-1">
     <div class="flex container gap-6 pb-16">
         <div class="imgs w-7/12 grid grid-cols-2 gap-2">
-            <div class="img-wrap" v-for="img in imgs" :key="img">
+            <div class="img-wrap" v-for="img in currentProd.imgs" :key="img">
                 <img class="object-cover w-full" :src="img" alt="prod-img">
             </div>
         </div>
@@ -134,11 +134,88 @@
 
             <div class="breadcrumb label-md flex gap-3">
                 <p class="item text-neutral-600">首頁</p>
-                <p class="divider text-neutral300">/</p>
-                <p class="item text-neutral-900">所有商品</p>
+                <p class="divider text-neutral-300">/</p>
+                <p class="item text-neutral-600">女鞋</p>
+                <p class="divider text-neutral-300">/</p>
+                <p class="item text-neutral-600">滑板鞋</p>
+                <p class="divider text-neutral-300">/</p>
+                <p class="item text-neutral-900">Platform 404</p>
             </div>
 
-            <div class="flex flex-col gap-12">
+            <div class="flex flex-col">
+                <p class="heading-h2 mb-4">Platform 404</p>
+                <div class="flex mb-4">
+                    <div class="heading-h5 text-primary-400 mr-2">NT$2,600</div>
+                    <span class="paragraph-sm text-neutral-500 line-through">
+                        NT$3,200
+                    </span>
+                </div>
+                <div class="desc paragraph-md text-neutral-900 mb-8">
+                    <p class="mb-3">Platform 404
+                        以柔和奶白為底，搭配深藍色皮革點綴，走在街上自帶回頭率。鞋型採用復古運動風輪廓，結合輕量厚底與柔軟泡棉鞋舌，兼顧美感與舒適。</p>
+                    <p>
+                        鞋身選用柔軟皮革材質，打造出清新卻不失個性的氛圍，並以鞋面透氣孔設計提升穿著體驗，兼顧質感與舒適度，適合日常長時間著用。無論是街頭穿搭、日常通勤或週末出遊都能輕鬆駕馭。</p>
+                </div>
+
+                <!-- 顏色區塊 -->
+                <section class="color-section mb-8">
+                    <p class="paragraph-md text-neutral-900 mb-2">顏色</p>
+
+                    <label class="option">
+                        <input type="radio" name="color"
+                               :checked="selectedInfo.color === '藍色'"
+                               @change="selectedInfo.color = '藍色'"
+                               value="藍色" />
+                        <div class="radio-card">
+                            <div class="img-wrap">
+                                <img src="./imgs/card-img-1.png" alt="藍色" />
+                            </div>
+                            <span>藍色</span>
+                        </div>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio"
+                               name="color"
+                               :checked="selectedInfo.color === '卡其色'"
+                               @change="selectedInfo.color = '卡其色'"
+                               value="卡其色" />
+                        <div class="radio-card">
+                            <div class="img-wrap">
+                                <img src="./imgs/card-img-2.png" alt="卡其色" />
+                            </div>
+                            <span>卡其色</span>
+                        </div>
+                    </label>
+
+                </section>
+
+                <!-- 尺寸區塊 -->
+                <section>
+                    <p class="paragraph-md text-neutral-900 mb-2">尺寸</p>
+                    <div class="btn-wrap flex flex-wrap gap-2">
+                        <label class="option" v-for="storage in currentProd.storage">
+                            <input type="radio" name="size" :value="storage.size"
+                                   :disabled="storage.amount === 0" />
+                            <div class="option-btn">
+                                {{storage.size}}
+                            </div>
+                        </label>
+                    </div>
+                </section>
+
+                <!-- 按鈕 -->
+                <section class="flex">
+                    <button class="btn btn-primary"></button>
+                </section>
+
+                <!-- 描述 -->
+                <section class="flex description">
+                    <p class="label-md mb-1">商品材質</p>
+                    <p class="content">
+
+                    </p>
+                </section>
 
             </div>
         </div>
@@ -147,7 +224,7 @@
     <div class="flex flex-col container pb-10 my-12">
         <h4 class="heading-h4 mb-4">你可能也喜歡...</h4>
         <div class="flex gap-6">
-            <div class="card grow-1" v-for="card in cards" :key="card.id">
+            <div class="card grow-1" v-for="card in relatedProd" :key="card.id">
                 <img class="mb-3" :src="card.img" alt="card-img">
                 <p class="title heading-h6 mb-1">{{card.title}}</p>
                 <span class="content label-md">{{card.content}}</span>
@@ -187,17 +264,36 @@
     createApp({
         data() {
             return {
-                imgs: [
-                    './imgs/prod-img-1.png',
-                    './imgs/prod-img-2.png',
-                    './imgs/prod-img-3.png',
-                    './imgs/prod-img-4.png',
-                    './imgs/prod-img-5.png',
-                    './imgs/prod-img-6.png',
-                    './imgs/prod-img-7.png',
-                    './imgs/prod-img-8.png',
-                ],
-                cards: [
+                selectedInfo: {
+                    color: '藍色',
+                    size: '35(22.5cm)',
+                },
+                currentProd: {
+                    imgs: [
+                        './imgs/prod-img-1.png',
+                        './imgs/prod-img-2.png',
+                        './imgs/prod-img-3.png',
+                        './imgs/prod-img-4.png',
+                        './imgs/prod-img-5.png',
+                        './imgs/prod-img-6.png',
+                        './imgs/prod-img-7.png',
+                        './imgs/prod-img-8.png',
+                    ],
+                    storage: [
+                        {size: '35(22.5cm)', amount: 3},
+                        {size: '36(23.0cm)', amount: 2},
+                        {size: '37(23.5cm)', amount: 5},
+                        {size: '38(24.0cm)', amount: 4},
+                        {size: '39(24.5cm)', amount: 8},
+                        {size: '40(25.0cm)', amount: 6},
+                        {size: '41(26.0cm)', amount: 12},
+                        {size: '42(26.5cm)', amount: 0},
+                        {size: '43(27.0cm)', amount: 0},
+                    ],
+                },
+
+                // 相似商品
+                relatedProd: [
                     {
                         id: 1,
                         img: './imgs/relate-prod-img-1.png',
@@ -222,7 +318,9 @@
                         title: 'Sugar Snap',
                         content: 'NT$3,200',
                     },
-                ]
+                ],
+
+
             }
         }
     }).mount('body')
